@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>InsightHub Dashboard</title>
 
-<link href="bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -17,36 +17,46 @@
 
 <body class="bg-light">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-3">
-  <button class="btn btn-outline-secondary d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
-    ☰
-  </button>
+<!-- HEADER -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container-fluid">
 
-  <form class="d-none d-md-flex ms-3">
-    <input class="form-control" type="search" placeholder="Buscar...">
-  </form>
+    <button class="btn btn-outline-secondary d-lg-none" 
+            data-bs-toggle="offcanvas" 
+            data-bs-target="#sidebar"
+            aria-controls="sidebar">
+      ☰
+    </button>
 
-  <div class="ms-auto d-flex align-items-center gap-3">
-    <span>🔔</span>
+    <form class="d-none d-md-flex ms-3">
+      <input class="form-control" type="search" placeholder="Buscar...">
+    </form>
 
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <span>🔔</span>
 
-    <div class="dropdown">
-      <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
-        Usuario
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end">
-        <li><a class="dropdown-item" href="#">Perfil</a></li>
-        <li><a class="dropdown-item" href="#">Configuración</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Salir</a></li>
-      </ul>
+      <div class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+          Usuario
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="#">Perfil</a></li>
+          <li><a class="dropdown-item" href="#">Configuración</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Salir</a></li>
+        </ul>
+      </div>
     </div>
+
   </div>
 </nav>
+</header>
 
 <div class="container-fluid">
   <div class="row">
 
+    <!-- SIDEBAR DESKTOP -->
     <aside class="col-lg-2 d-none d-lg-block bg-dark text-white sidebar p-3">
       <h5>InsightHub</h5>
       <ul class="nav flex-column mt-4">
@@ -57,10 +67,10 @@
       </ul>
     </aside>
 
-
-    <div class="offcanvas offcanvas-start" id="sidebar">
+    <!-- SIDEBAR MOBILE -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
       <div class="offcanvas-header">
-        <h5>Menú</h5>
+        <h5 id="sidebarLabel">Menú</h5>
         <button class="btn-close" data-bs-dismiss="offcanvas"></button>
       </div>
       <div class="offcanvas-body">
@@ -73,10 +83,10 @@
       </div>
     </div>
 
+    <!-- MAIN -->
+    <main class="col-lg-10 ms-sm-auto px-md-4 py-4">
 
-    <main class="col-lg-10 p-4">
-
-
+      <!-- KPIs -->
       <div class="row g-3">
         <div class="col-12 col-md-6 col-xl-3">
           <div class="card">
@@ -134,7 +144,7 @@
         </form>
       </div>
 
-
+      <!-- TABLA -->
       <div class="mt-4 table-responsive">
         <table class="table table-striped table-hover">
           <thead>
@@ -180,7 +190,7 @@
         </table>
       </div>
 
-
+      <!-- LIST GROUP -->
       <div class="mt-4">
         <h5>Actividad reciente</h5>
         <ul class="list-group">
@@ -194,6 +204,7 @@
   </div>
 </div>
 
+<!-- MODAL -->
 <div class="modal fade" id="userModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -213,8 +224,30 @@
   </div>
 </div>
 
+<!-- FOOTER -->
+<footer class="text-center py-3 text-muted">
+  © 2026 InsightHub
+</footer>
 
 <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: 
+      linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
+      url("imgb.jpg") center/cover no-repeat;
+    z-index: -1;
+  }
+  .sidebar { min-height: 100vh; }
+</style>
 </html>
